@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tyresö Gymnasium Mobilreparationer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a0a2e; --navy2:#12124a; --gold:#c39a3c; --gold2:#e6c070; --white:#fff; --ink:#0a0a2e; --mist:#f5f4ef; --line:rgba(255,255,255,.14);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:80px;scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--navy);color:var(--white);font:400 1.05rem/1.6 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0 0 .5em;line-height:1.05;letter-spacing:-.025em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+.bar{position:sticky;top:0;z-index:20;background:rgba(10,10,46,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;line-height:1;font-size:.95rem;text-decoration:none;letter-spacing:.02em}
+nav{display:flex;align-items:center;gap:26px;font-size:.95rem}
+nav a{text-decoration:none;opacity:.85}
+nav a:hover{opacity:1}
+.pill{background:var(--white);color:var(--ink);font-weight:700;padding:9px 18px;border-radius:99px;opacity:1}
+@media(max-width:640px){nav a:not(.pill){display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;padding:15px 26px;border-radius:99px;border:0;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1300;box-shadow:0 8px 26px rgba(195,154,60,.28)}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--white);box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
+.btn.ghost:hover{background:var(--white);color:var(--ink)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:64px 0 90px;background:radial-gradient(900px 500px at 78% 30%,rgba(60,50,190,.55),transparent 70%),radial-gradient(600px 400px at 10% 90%,rgba(195,154,60,.16),transparent 70%),var(--navy)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold2);border-radius:99px;padding:6px 14px;font-size:.85rem;margin-bottom:22px}
+.hero h1{font-size:clamp(2.5rem,6.4vw,4.6rem);font-weight:800}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:46ch;font-size:1.15rem;color:#cfd0f0;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+
+/* phone */
+.stage{display:flex;flex-direction:column;align-items:center;gap:22px}
+.phone{width:min(290px,70vw);filter:drop-shadow(0 40px 50px rgba(0,0,0,.55))}
+.crack{transition:opacity .5s}
+.stage[data-fixed="true"] .crack{opacity:0}
+.seg{display:inline-flex;background:rgba(255,255,255,.1);border:1px solid var(--line);border-radius:99px;padding:4px}
+.seg button{font:inherit;font-weight:600;font-size:.9rem;color:var(--white);background:none;border:0;padding:8px 20px;border-radius:99px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--white);color:var(--ink)}
+
+/* light sections */
+.light{background:var(--white);color:var(--ink)}
+.mist{background:var(--mist);color:var(--ink)}
+section{padding:96px 0}
+.hero{padding-bottom:90px}
+h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800}
+.lead{max-width:56ch;font-size:1.12rem;opacity:.75;margin:0 0 44px}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.card{border-radius:22px;padding:28px;background:var(--mist);position:relative;overflow:hidden;min-height:190px}
+.card h3{font-size:1.4rem;font-weight:800}
+.card p{margin:0;opacity:.72;max-width:38ch;padding-bottom:70px}
+.card svg{position:absolute;right:20px;bottom:18px;width:84px;height:84px;opacity:.9}
+.c1{grid-column:span 4;background:var(--navy);color:var(--white)}
+.c1 p{opacity:.8}
+.c2{grid-column:span 2}
+.c3,.c4,.c5{grid-column:span 2}
+.c5{background:linear-gradient(135deg,var(--gold2),var(--gold));}
+.c5 p{opacity:.85}
+@media(max-width:820px){.card{grid-column:span 6!important}}
+
+/* picker */
+.picker{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+@media(max-width:780px){.picker{grid-template-columns:1fr}}
+.opts{display:grid;gap:10px;align-content:start}
+.opts button{font:inherit;font-weight:600;text-align:left;padding:18px 20px;background:var(--white);color:var(--ink);border:1.5px solid rgba(10,10,46,.14);border-radius:16px;cursor:pointer;transition:border-color .15s,transform .15s}
+.opts button:hover{border-color:var(--navy)}
+.opts button[aria-pressed="true"]{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.answer{background:var(--navy);color:var(--white);border-radius:24px;padding:34px;display:flex;flex-direction:column;justify-content:center;gap:12px;min-height:240px}
+.answer h3{font-size:1.8rem;margin:0}
+.answer p{margin:0 0 10px;color:#cfd0f0}
+.answer .btn{align-self:flex-start}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;position:relative}
+@media(max-width:860px){.steps{grid-template-columns:1fr;gap:26px}}
+.steps li{counter-increment:s;padding-right:24px;position:relative}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--navy);color:var(--gold2);font-weight:800;margin-bottom:16px;position:relative;z-index:1}
+@media(min-width:861px){.steps li:not(:last-child)::after{content:"";position:absolute;top:22px;left:56px;right:10px;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}}
+.steps b{display:block;font-size:1.15rem;margin-bottom:4px}
+.steps span{opacity:.72}
+.models{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:18px 0 0;padding:0}
+.models li{background:var(--white);border:1.5px solid rgba(10,10,46,.14);padding:9px 18px;border-radius:99px;font-weight:600}
+
+/* faq */
+.faq{max-width:760px}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;font-size:1.15rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";transition:transform .3s ease;color:var(--gold2);font-size:1.5rem;line-height:1}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:12px 0 0;color:#cfd0f0}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:780px){.contact{grid-template-columns:1fr}}
+.map{background:linear-gradient(135deg,var(--navy2),var(--navy));border-radius:24px;padding:36px;border:1px solid var(--line)}
+.map strong{display:block;font-size:2rem;letter-spacing:-.02em}
+.map small{display:block;margin-top:14px;color:var(--gold2)}
+footer{padding:28px 0;border-top:1px solid var(--line);font-size:.9rem;color:#a9aad4}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.logo,.map strong,.card h3,.steps b,summary,.answer h3,.btn,.tag{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;font-weight:800}
+.logo{font-size:1.2rem;letter-spacing:-.01em}
+.btn,.pill,.seg button,.opts button{transition:transform .25s ease,filter .25s ease,background .25s ease,color .25s ease,box-shadow .25s ease,border-color .25s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.pill:hover{transform:translateY(-1px)}
+.opts button:hover{transform:translateX(4px)}
+.card{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(10,10,46,.16)}
+.models li{transition:transform .2s ease,border-color .2s ease}
+.models li:hover{transform:translateY(-2px);border-color:var(--gold)}
+@keyframes rise{from{opacity:0;translate:0 26px}to{opacity:1;translate:0 0}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-12px) rotate(1.2deg)}}
+@keyframes sweep{from{transform:skewX(-14deg) translateX(0)}to{transform:skewX(-14deg) translateX(520px)}}
+@keyframes pop{from{opacity:0;translate:0 10px}to{opacity:1;translate:0 0}}
+.hero .wrap>div:first-child>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap>div:first-child>:nth-child(2){animation-delay:.1s}
+.hero .wrap>div:first-child>:nth-child(3){animation-delay:.22s}
+.hero .wrap>div:first-child>:nth-child(4){animation-delay:.34s}
+.stage{animation:rise 1s cubic-bezier(.2,.7,.2,1) .25s both}
+.phone{animation:float 7s ease-in-out 1.2s infinite}
+.crack{transition:opacity .8s ease .15s}
+.sweep.go{animation:sweep .9s ease-in-out}
+.answer>*{animation:pop .4s ease both}
+.answer>:nth-child(2){animation-delay:.06s}.answer>:nth-child(3){animation-delay:.12s}
+.js .rv{opacity:0;translate:0 24px;transition:opacity .8s ease var(--d,0s),translate .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.js .rv.in{opacity:1;translate:0 0}
+.js .card.rv{transition:opacity .8s ease var(--d,0s),translate .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+@media(prefers-reduced-motion:reduce){.hero *,.stage,.phone,.answer>*{animation:none!important}.js .rv{opacity:1;translate:none}}
+
+.logo span{display:block;font-size:.72rem;font-weight:500;letter-spacing:.04em;opacity:.7;margin-top:4px}
+#intro{position:fixed;inset:0;z-index:100;background:radial-gradient(700px 420px at 50% 55%,#1a1a6a,var(--navy));display:grid;place-items:center;text-align:center;animation:introOut 2.7s both;pointer-events:none}
+#intro .in{display:grid;justify-items:center;gap:10px}
+#intro .n,#intro .m{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-serif;opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+#intro .n{font-size:clamp(2rem,7vw,3.6rem);font-weight:800;letter-spacing:-.025em;animation-delay:.15s}
+#intro .m{font-size:clamp(.95rem,2.6vw,1.3rem);font-weight:500;color:var(--gold2);letter-spacing:.06em;animation-delay:.45s}
+#intro i{display:block;width:120px;height:3px;margin-top:14px;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transform-origin:left;animation:draw .9s cubic-bezier(.6,0,.2,1) .8s both}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes introOut{0%{transform:none;visibility:visible;animation-timing-function:cubic-bezier(.76,0,.24,1)}72%{transform:none}99.9%{visibility:visible}100%{transform:translateY(-100%);visibility:hidden}}
+.hero .wrap>div:first-child>*{animation-delay:1.75s}
+.hero .wrap>div:first-child>:nth-child(2){animation-delay:1.85s}
+.hero .wrap>div:first-child>:nth-child(3){animation-delay:1.97s}
+.hero .wrap>div:first-child>:nth-child(4){animation-delay:2.09s}
+.stage{animation-delay:2s}
+.phone{animation-delay:3.2s}
+@media(prefers-reduced-motion:reduce){#intro{display:none}}
+</style>
+</head>
+<body>
+<div id="intro" aria-hidden="true"><div class="in"><span class="n">Tyresö Gymnasium</span><span class="m">Mobilreparationer</span><i></i></div></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="logo" href="#">Tyresö Gymnasium<span>Mobilreparationer</span></a>
+    <nav>
+      <a href="#tjanster">Tjänster</a>
+      <a href="#hjalp">Vad är fel?</a>
+      <a href="#faq">Frågor</a>
+      <a class="pill" href="#hitta">Hitta hit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag">Mobilreparationer · iPhone 6 till iPhone 11</span>
+      <h1>Trasig iPhone? Vi gör den <em>hel igen.</em></h1>
+      <p>Dålig batteritid, sprucken skärm eller en laddport som inte vill ladda? Tyresö Gymnasium lagar din iPhone, från skärmbyte och batteribyte till kamera, högtalare och bakglas. Kom förbi på Farmarstigen 9, så tittar vi på felet tillsammans med dig och berättar vad som behöver göras.</p>
+      <div class="cta">
+        <a class="btn" href="#hjalp">Hitta rätt reparation</a>
+        <a class="btn ghost" href="#hitta">Hitta hit</a>
+      </div>
+    </div>
+
+    <div class="stage" id="stage" data-fixed="false">
+      <svg class="phone" viewBox="-6 0 312 610" role="img" aria-label="iPhone 7 med och utan trasig skärm">
+        <defs>
+          <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dcd2"/><stop offset=".5" stop-color="#b98a7c"/><stop offset="1" stop-color="#efd3c8"/></linearGradient>
+          <linearGradient id="wall" x1=".2" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#1c1450"/><stop offset=".45" stop-color="#6a2a8c"/><stop offset=".75" stop-color="#e2492b"/><stop offset="1" stop-color="#ffa13a"/></linearGradient>
+          <linearGradient id="glare" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          <linearGradient id="sw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          <clipPath id="scr"><rect x="20" y="84" width="260" height="432" rx="3"/></clipPath>
+        </defs>
+        <rect x="-3" y="104" width="5" height="22" rx="2" fill="#a47a6d"/>
+        <rect x="-3" y="148" width="5" height="44" rx="2" fill="#a47a6d"/>
+        <rect x="-3" y="202" width="5" height="44" rx="2" fill="#a47a6d"/>
+        <rect x="298" y="170" width="5" height="56" rx="2" fill="#a47a6d"/>
+        <rect x="0" y="0" width="300" height="610" rx="48" fill="url(#frame)"/>
+        <rect x="7" y="7" width="286" height="596" rx="42" fill="#0a0a0c"/>
+        <rect x="120" y="44" width="60" height="7" rx="3.5" fill="#1e1e24"/>
+        <circle cx="96" cy="47" r="6" fill="#15152a" stroke="#2a2a38" stroke-width="2"/>
+        <circle cx="205" cy="47" r="2.6" fill="#1b1b24"/>
+        <g clip-path="url(#scr)">
+          <rect x="20" y="84" width="260" height="432" fill="url(#wall)"/>
+          <ellipse cx="170" cy="440" rx="120" ry="140" fill="#ff5a2a" opacity=".35"/>
+          <text x="150" y="188" text-anchor="middle" font-family="system-ui,Arial" font-size="68" font-weight="300" fill="#fff" fill-opacity=".95">9:41</text>
+          <text x="150" y="134" text-anchor="middle" font-family="system-ui,Arial" font-size="14" fill="#fff" fill-opacity=".85">fredag 16 oktober</text>
+          <text x="150" y="486" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff" fill-opacity=".8">tryck på hemknappen för att låsa upp</text>
+          <rect x="246" y="94" width="24" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".7"/>
+          <rect x="248" y="96" width="14" height="7" rx="1.5" fill="#fff"/>
+          <g fill="#fff"><circle cx="32" cy="100" r="2.2"/><circle cx="39" cy="100" r="2.2"/><circle cx="46" cy="100" r="2.2"/><circle cx="53" cy="100" r="2.2" fill-opacity=".4"/></g>
+          <g class="crack" transform="translate(20 84) scale(.97 .761) translate(-16 -16)" fill="none" stroke="#fff" stroke-linecap="round">
+            <g stroke-width="1.8" stroke-opacity=".9"><path d="M210 80 L176 150 L140 190 L96 280 L60 330"/><path d="M176 150 L232 214 L262 300"/><path d="M140 190 L190 270 L176 380 L220 470"/><path d="M96 280 L130 360 L90 450"/><path d="M176 380 L120 420"/><path d="M60 330 L22 360"/></g>
+            <g stroke-width=".9" stroke-opacity=".6"><path d="M158 168 L190 150 L206 176 L232 214"/><path d="M120 235 L156 240 L168 214 L140 190"/><path d="M160 320 L176 380"/><path d="M118 306 L154 296 L190 270"/></g>
+            <rect x="16" y="16" width="268" height="578" fill="#000" fill-opacity=".14" stroke="none"/>
+            <path d="M180 100 L240 140 L216 210 L176 150 Z M96 280 L150 300 L130 360 Z" fill="#000" fill-opacity=".38" stroke="none"/>
+          </g>
+          <rect class="sweep" x="-120" y="84" width="110" height="432" fill="url(#sw)" transform="skewX(-14)"/>
+        </g>
+        <rect x="20" y="84" width="260" height="432" rx="3" fill="url(#glare)" pointer-events="none"/>
+        <circle cx="150" cy="561" r="27" fill="#0a0a0c" stroke="#3b3b44" stroke-width="2.5"/>
+        <circle cx="150" cy="561" r="27" fill="none" stroke="#fff" stroke-opacity=".06" stroke-width="6"/>
+      </svg>
+      <div class="seg" role="group" aria-label="Före eller efter reparation">
+        <button id="b1" aria-pressed="true">Före</button>
+        <button id="b2" aria-pressed="false">Efter reparation</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="tjanster">
+  <div class="wrap">
+    <h2>Det här lagar vi</h2>
+    <p class="lead">Det här är de fem vanligaste problemen på en iPhone, och alla går att åtgärda på modellerna från iPhone 6 till iPhone 11. Du behöver inte veta exakt vad som är fel. Berätta vad som händer med telefonen, så hjälper vi dig att hitta rätt reparation.</p>
+    <div class="bento">
+      <div class="card c1"><h3>Skärmbyte</h3><p>Sprucket glas, svarta fläckar, ränder eller en skärm som inte reagerar på touch? Vi byter hela skärmen mot en ny, så att du kan använda telefonen utan att riskera skära dig på glaset.</p>
+        <svg viewBox="0 0 64 64" fill="none" stroke="#e6c070" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="4" width="28" height="56" rx="6"/><path d="M36 10l-8 14 6 6-8 16"/></svg></div>
+      <div class="card c2"><h3>Batteribyte</h3><p>Går telefonen från 40 procent till noll, eller måste du ladda flera gånger per dag? Med ett nytt batteri får du tillbaka en batteritid som håller hela dagen.</p>
+        <svg viewBox="0 0 64 64" fill="none" stroke="#0a0a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="20" width="46" height="24" rx="5"/><path d="M56 28v8M30 24l-6 9h10l-6 9"/></svg></div>
+      <div class="card c3"><h3>Laddport</h3><p>Om telefonen bara laddar när sladden sitter i en viss vinkel, eller inte laddar alls, är det ofta laddporten som är sliten eller full av smuts. Vi lagar den så att laddningen fungerar igen.</p>
+        <svg viewBox="0 0 64 64" fill="none" stroke="#0a0a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6v14M42 6v14M16 20h32v10a16 16 0 0 1-32 0zM32 46v12"/></svg></div>
+      <div class="card c4"><h3>Kamera och högtalare</h3><p>Suddiga bilder, en kamera som inte startar eller ett ljud som är lågt, skrapigt eller helt borta? Vi byter den del som är trasig så att du kan fota, ringa och lyssna som vanligt.</p>
+        <svg viewBox="0 0 64 64" fill="none" stroke="#0a0a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="16" width="52" height="36" rx="7"/><circle cx="32" cy="34" r="10"/><path d="M22 16l4-6h12l4 6"/></svg></div>
+      <div class="card c5"><h3>Baksida</h3><p>Ett krossat bakglas ser inte bara trasigt ut, det släpper också in smuts och fukt. Vi byter baksidan så att telefonen blir tät och fin igen.</p>
+        <svg viewBox="0 0 64 64" fill="none" stroke="#0a0a2e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="4" width="32" height="56" rx="7"/><circle cx="26" cy="16" r="4"/><circle cx="26" cy="28" r="4"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section id="hjalp">
+  <div class="wrap">
+    <h2>Vad är det för fel?</h2>
+    <p class="lead">Osäker på vad som är fel? Välj det som stämmer bäst med din iPhone, så får du en förklaring av vilken reparation som brukar lösa problemet. Det är en vägledning, och vi tittar alltid på telefonen när du kommer in.</p>
+    <div class="picker" style="color:var(--ink)">
+      <div class="opts" id="opts" role="group" aria-label="Välj problem">
+        <button aria-pressed="false" data-k="skarm">Skärmen är sprucken eller svart</button>
+        <button aria-pressed="false" data-k="batteri">Batteriet tar slut för fort</button>
+        <button aria-pressed="false" data-k="laddar">Telefonen laddar inte</button>
+        <button aria-pressed="false" data-k="ljud">Kameran eller högtalaren fungerar inte</button>
+        <button aria-pressed="false" data-k="bak">Baksidan är krossad</button>
+      </div>
+      <div class="answer" id="answer" aria-live="polite" style="background:var(--white);color:var(--ink)">
+        <h3>Välj ett problem</h3>
+        <p style="color:inherit;opacity:.7">Här visas vilken reparation som passar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mist">
+  <div class="wrap">
+    <h2>Så går det till</h2>
+    <p class="lead">Du behöver ingen förkunskap. Så här går en reparation till, från att du kommer in med en trasig iPhone till att du går därifrån med en hel.</p>
+    <ol class="steps">
+      <li><b>Kom förbi</b><span>Ta med din iPhone till Farmarstigen 9 i Tyresö. Berätta vad som har hänt och vad som inte fungerar, så vet vi var vi ska börja.</span></li>
+      <li><b>Vi undersöker</b><span>Vi tittar på telefonen, hittar felet och förklarar i klartext vad som behöver bytas, så att du vet vad som ska göras innan vi börjar.</span></li>
+      <li><b>Vi reparerar</b><span>Vi byter den trasiga delen och testar att allt fungerar, till exempel skärm, batteri, laddning, kamera och ljud.</span></li>
+      <li><b>Hämta</b><span>Du hämtar din iPhone och kan direkt se och känna skillnaden. Har du frågor om reparationen svarar vi på dem när du hämtar.</span></li>
+    </ol>
+    <ul class="models" aria-label="Modeller"><li>iPhone 6</li><li>iPhone 7</li><li>iPhone 8</li><li>iPhone X</li><li>iPhone XR</li><li>iPhone 11</li></ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Vanliga frågor</h2>
+    <div class="faq">
+      <details><summary>Vilka iPhone-modeller kan ni laga?</summary><p>Vi reparerar iPhone-modellerna från iPhone 6 till iPhone 11. Har du en annan modell, eller är du osäker på vilken du har, kan du fråga oss när du kommer förbi. Du hittar modellnamnet i Inställningar under Allmänt och Om.</p></details>
+      <details><summary>Vad kan ni reparera?</summary><p>Vi gör skärmbyte och batteribyte, reparerar laddporten, byter kamera och högtalare samt byter baksidan (bakglaset). Det är de vanligaste felen på en iPhone. Har du ett annat problem kan du ändå ta med telefonen, så tittar vi på den.</p></details>
+      <details><summary>Var hittar jag er?</summary><p>Vi finns på Tyresö Gymnasium, Farmarstigen 9 i Tyresö. Under Hitta hit längre ner på sidan finns en knapp som öppnar platsen direkt i Google Maps, så att du kan få en vägbeskrivning från där du är.</p></details><details><summary>Hur vet jag vad som är fel på min iPhone?</summary><p>Använd hjälpen Vad är det för fel? högre upp på sidan. Där väljer du det som stämmer bäst, till exempel att batteriet tar slut för fort eller att telefonen inte laddar, och ser vilken reparation som brukar passa. Är du fortfarande osäker tittar vi på telefonen när du kommer in.</p></details><details><summary>Vad ska jag göra innan jag kommer?</summary><p>Om telefonen fortfarande går att använda är det bra att säkerhetskopiera dina bilder och din data, till exempel i iCloud eller på en dator. Ta gärna med laddaren, och tänk på hur du vill beskriva problemet: när det började, vad som hände innan och om telefonen har tappats eller blivit blöt.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="mist" id="hitta">
+  <div class="wrap contact">
+    <div>
+      <h2>Hitta hit</h2>
+      <p class="lead" style="margin-bottom:26px">Mobilreparationer drivs av Tyresö Gymnasium och ligger på Farmarstigen 9 i Tyresö. Ta med din iPhone och berätta vad som är fel, så hjälper vi dig vidare. Knappen nedan öppnar platsen i Google Maps.</p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=59.236185937876655,18.23540781816841" target="_blank" rel="noopener">Öppna i kartan</a>
+    </div>
+    <div class="map"><strong style="color:var(--white)">Farmarstigen 9</strong><span style="color:#cfd0f0">Tyresö</span><small>Tyresö Gymnasium · Mobilreparationer</small></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Tyresö Gymnasium · Mobilreparationer · Farmarstigen 9, Tyresö</div></footer>
+
+<script>
+const stage=document.getElementById('stage'),b1=document.getElementById('b1'),b2=document.getElementById('b2');
+function fix(f){stage.dataset.fixed=f;b1.setAttribute('aria-pressed',!f);b2.setAttribute('aria-pressed',f)}
+b1.onclick=()=>fix(false);b2.onclick=()=>fix(true);
+const info={
+  skarm:["Skärmbyte","Det här löses med ett skärmbyte. Vi tar bort den trasiga skärmen och sätter dit en ny, så att bilden, touchen och glaset fungerar som de ska. Det gäller både spruckna skärmar och skärmar som är mörka, har ränder eller inte reagerar på tryck."],
+  batteri:["Batteribyte","Ett batteri slits med tiden, och efter några år håller det inte lika länge. Om telefonen stänger av sig själv, blir varm eller måste laddas flera gånger om dagen är ett batteribyte oftast lösningen, och du får full batteritid igen."],
+  laddar:["Reparation av laddport","När en iPhone slutar ladda beror det ofta på laddporten och inte på batteriet. Porten kan vara sliten eller full av smuts, och då hjälper det inte att byta sladd. Vi reparerar laddporten så att telefonen laddar normalt igen."],
+  ljud:["Kamera- och högtalarbyte","Om bilderna blir suddiga, kameran inte startar eller ljudet är svagt eller skrapigt är det oftast en enskild del som har gått sönder. Vi byter kameran eller högtalaren, så att du kan fota, ringa och spela musik som vanligt."],
+  bak:["Byte av baksida (bakglas)","Ett krossat bakglas kan släppa in smuts och fukt, och det kan vara vasst att hålla i. Vi byter baksidan på din iPhone så att telefonen blir hel och fin igen och du kan använda den utan att oroa dig."]
+};
+const ans=document.getElementById('answer');
+document.querySelectorAll('#opts button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#opts button').forEach(x=>x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true');
+  ans.innerHTML='<h3></h3><p style="color:inherit;opacity:.7"></p><a class="btn" href="#hitta">Kom till oss</a>';
+  ans.querySelector('h3').textContent=info[b.dataset.k][0];
+  ans.querySelector('p').textContent=info[b.dataset.k][1];
+}));
+
+document.documentElement.classList.add('js');
+const sw=document.querySelector('.sweep');
+const _fix=fix;
+fix=function(f){_fix(f);sw.classList.remove('go');void sw.getBoundingClientRect();sw.classList.add('go')};
+b1.onclick=()=>fix(false);b2.onclick=()=>fix(true);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('section:not(.hero) h2,.lead,.card,.steps li,.models,details,.picker,.map,.contact .btn').forEach((el,i)=>{
+  el.classList.add('rv');
+  if(el.matches('.card,.steps li,details'))el.style.setProperty('--d',((Array.from(el.parentNode.children).indexOf(el))*0.09)+'s');
+  io.observe(el);
+});
+</script>
+</body>
+</html>
