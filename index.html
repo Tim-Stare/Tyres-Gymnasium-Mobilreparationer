@@ -164,6 +164,9 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-se
 .stage{animation-delay:2s}
 .phone{animation-delay:3.2s}
 @media(prefers-reduced-motion:reduce){#intro{display:none}}
+.fab{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:30;display:inline-flex;align-items:center;padding:14px 22px;border-radius:99px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1a1300;font:700 .98rem "Bricolage Grotesque",system-ui,sans-serif;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:rise .8s cubic-bezier(.2,.7,.2,1) 3s both;transition:transform .25s ease,filter .25s ease}
+.fab:hover{transform:translateY(-3px);filter:brightness(1.08)}
+@media(prefers-reduced-motion:reduce){.fab{animation:none}}
 </style>
 </head>
 <body>
@@ -176,8 +179,8 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-se
       <a href="#tjanster">Tjänster</a>
       <a href="#hjalp">Vad är fel?</a>
       <a href="#faq">Frågor</a>
-      <a href="#boka">Formulär</a>
-      <a class="pill" href="#hitta">Hitta hit</a>
+      <a href="#hitta">Hitta hit</a>
+      <a class="pill" href="https://docs.google.com/forms/d/e/1FAIpQLSdwJ2WtoZVqMpPEBxk4AsTX2ehyHssQrBfSvvhilzCD8LvKOg/viewform" target="_blank" rel="noopener">Fyll i formulär</a>
     </nav>
   </div>
 </header>
@@ -191,7 +194,7 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-se
       <p>Dålig batteritid, sprucken skärm eller en laddport som inte vill ladda? Tyresö Gymnasium lagar din iPhone, från skärmbyte och batteribyte till kamera, högtalare och bakglas. Kom förbi på Farmarstigen 9, så tittar vi på felet tillsammans med dig och berättar vad som behöver göras.</p>
       <div class="cta">
         <a class="btn" href="#hjalp">Hitta rätt reparation</a>
-        <a class="btn ghost" href="#hitta">Hitta hit</a>
+        <a class="btn ghost" href="https://docs.google.com/forms/d/e/1FAIpQLSdwJ2WtoZVqMpPEBxk4AsTX2ehyHssQrBfSvvhilzCD8LvKOg/viewform" target="_blank" rel="noopener">Fyll i formuläret</a>
       </div>
     </div>
 
@@ -326,6 +329,8 @@ h1,h2,h3{font-family:"Bricolage Grotesque","Plus Jakarta Sans",system-ui,sans-se
   </div>
 </section>
 </main>
+
+<a class="fab" href="https://docs.google.com/forms/d/e/1FAIpQLSdwJ2WtoZVqMpPEBxk4AsTX2ehyHssQrBfSvvhilzCD8LvKOg/viewform" target="_blank" rel="noopener">Fyll i formuläret</a>
 
 <footer><div class="wrap">© 2026 Tyresö Gymnasium · Mobilreparationer · Farmarstigen 9, Tyresö</div></footer>
 
